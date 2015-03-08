@@ -1,0 +1,29 @@
+body {
+    background-color: red;
+    font-family:sans-serif;
+}
+.wrapper {
+    width: 100%;
+}
+.timer {
+    color: white;
+    position: relative;
+    height:100%;
+}
+h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1500%;
+}
+input[type="number"] {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height:10%;
+    font-size:200%;
+    color:#353535;
+    font-weight:800;
+    text-align:center;
+}
