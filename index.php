@@ -13,10 +13,14 @@
 </head>
 <body>
     <div class='wrapper'>
-        <div class='timer'>
-            <h1 id="num">?</h1>
+        <div class='g-2-3 centered-text'>
+            <div class="content-box" id="timer-box">
+                <h1 id="num">?</h1>
+            </div>
         </div>
-        <input type="number" id="inputnum">
+        <div class='g-1-3 centered-text'>
+            <input type="text" id="inputnum" onKeyPress="return isNumberKey(event);" placeholder="#">
+        </div>
     </div>
 
     <!--JS-->
@@ -32,8 +36,30 @@
                     time++;
                 }
                 document.getElementById("num").innerHTML = time;
+                if(time == document.getElementById("inputnum").value){
+                    blink();
+                }else{
+                    unBlink();
+                }
             }, 1000);
         }, eta);
+        
+        function blink(){
+            document.getElementById('timer-box').style.backgroundColor = 'red'
+            document.body.style.backgroundColor = 'red';
+        }
+        
+        function unBlink(){
+            document.getElementById('timer-box').style.backgroundColor = "#333"
+            document.body.style.backgroundColor = '#0b0b0b';
+        }
+        
+        function isNumberKey(evt){
+            var charCode = (evt.which) ? evt.which : evt.keyCode
+            return !(charCode > 31 && (charCode < 48 || charCode > 57));
+        }
+        
+
     </script>
 </body>
 </html>
