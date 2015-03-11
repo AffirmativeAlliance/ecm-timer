@@ -25,10 +25,9 @@
 
     <!--JS-->
     <script type="text/javascript">
-        var eta = <?php echo $execTime*1000; ?> - <?php echo $serverTime; ?>;
         var time = 1;
         setTimeout(function(){
-            time = 1;
+            time = <?php echo $futureTime; ?>;
             setInterval(function(){
                 if(time == 30){
                     time = 1;
@@ -42,15 +41,25 @@
                     unBlink();
                 }
             }, 1000);
-        }, eta);
+        }, 2000);
         
         function blink(){
-            document.getElementById('timer-box').style.backgroundColor = 'red'
-            document.body.style.backgroundColor = 'red';
+            document.getElementById('timer-box').style.backgroundColor = '#CCCCCC';
+            document.getElementById('timer-box').style.borderColor= '#9F9F9F';
+            document.getElementById('timer-box').style.color= '#000000';
+            document.getElementById('inputnum').style.backgroundColor= '#DCDCDC';
+            document.getElementById('inputnum').style.borderColor= '#C6C6C6';
+            document.getElementById('inputnum').style.color= '#000000';
+            document.body.style.backgroundColor = '#F4F4F4';
         }
         
         function unBlink(){
             document.getElementById('timer-box').style.backgroundColor = "#333"
+            document.getElementById('timer-box').style.borderColor= '#606060'
+            document.getElementById('timer-box').style.color= '#FFFFFF';
+            document.getElementById('inputnum').style.backgroundColor= '#232323';
+            document.getElementById('inputnum').style.borderColor= '#393939';
+            document.getElementById('inputnum').style.color= '#FFFFFF';
             document.body.style.backgroundColor = '#0b0b0b';
         }
         
